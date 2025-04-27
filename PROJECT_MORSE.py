@@ -9,6 +9,9 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(OUT_LED, GPIO.OUT)
 OUT_LED2 = 18
 GPIO.setup(OUT_LED2, GPIO.OUT)
+OUT_LED3 = 23
+GPIO.setup(OUT_LED3, GPIO.OUT)
+
 
 MORSE_CODE_DICT = {
     'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.',
@@ -44,6 +47,11 @@ def play_morse_light(morse_code):
             GPIO.output(OUT_LED2, GPIO.HIGH)
             time.sleep(0.5)
             GPIO.output(OUT_LED2, GPIO.LOW)
+        elif symbol == '/':
+            print('/', end='', flush=True)
+            GPIO.output(OUT_LED3, GPIO.HIGH)
+            time.sleep(0.5)
+            GPIO.output(OUT_LED3, GPIO.LOW)
         time.sleep(0.2)
     print()
 
